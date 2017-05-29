@@ -1,0 +1,424 @@
+/**
+author:hanpan
+action:main-sidebar 、main-header
+控制左侧菜单栏，以及头部公共区域的样式改变
+date:2016-12-05;
+**/
+
+@import "box-shadow.scss";
+@import "border-radius.scss";
+@import "margin.scss";
+@import "padding.scss";
+$bgNormal:#fff;//默认背景色
+$titleFontcolor:#46517f;//页面title 字体颜色
+
+.oam-web  .main-header{
+  position:relative;
+  height:60px;
+  background:#fff;
+  @include border-radius(3px);
+  @include box-shadow(0 0 30px rgba(0,0,0,.1));
+}
+.oam-web  .main-header .sidebar-toggle{
+  color:#46517f;
+  @include padding(18px 25px);
+  font-size:20px;
+}
+.oam-web  .main-header .logo-bg{
+  position: absolute;
+  left:45%;
+  top:16px;
+   display: block;
+  margin:0 auto;
+  width:189px;
+  height:29px;
+  background: url("../image/logo.png") no-repeat;
+}
+.notifications-menu a{
+  color:$titleFontcolor;
+  font-size: 14px;
+}
+.content-header h2{
+  font-size:14px;
+  color:$titleFontcolor;
+  line-height: 30px;
+}
+.content-header{
+  height:30px;
+  margin:20px;
+  padding:0;
+}
+.oam-web  .content-wrapper{
+  background: #eff8f9;
+}
+
+//左侧菜单栏
+.oam-web .main-sidebar{
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  border-radius: 0 10px 10px 0;
+  background-color: #46517f;
+  @include box-shadow(0 0 30px rgba(0,0,0,.1));
+  position:absolute;
+  top:80px;
+  left:0;
+  min-height:90%;
+ @include margin(0 0 30px 0);
+}
+
+.oam-web .main-sidebar .sidebar-menu li a{
+  color:#dadada;
+}
+.oam-web .main-sidebar  .sidebar-menu>li>a{
+    padding:0 0 0 40px !important;
+    height:50px;
+   line-height: 50px;
+
+}
+.oam-web  .sidebar-menu > li.active a{
+  background-color: #1cc1fb !important;
+  color:#fff !important;
+  @include border-radius(0 25px 25px 0);
+  width:200px;
+  margin-right:30px;
+}
+.oam-web .main-sidebar .sidebar-menu li.active a span{
+  color:#fff !important;
+}
+
+.oam-web .main-sidebar .sidebar-menu  li a:hover{
+  @include border-radius(0 25px 25px 0);
+  background-color: #58628c;
+  width:200px;
+  margin-right:30px;
+  color: #ffffff !important;
+}
+.menu-icon{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  position:absolute;
+  left: 9px;
+  top: 12px;
+  background: url("../image/OA_icon.png") no-repeat;
+}
+//通讯录
+.address_list{
+  top: 6px;
+  background-position: 0 0;
+}
+.address_list:hover{
+  left:10px;
+  background-position: -30px 0;
+}
+/**阈值设置**/
+.content-header a {
+  color: #46517f;
+}
+.containerSetSty {
+  height: 240px;
+  @include border-radius(3px);
+  @include box-shadow(0 0 30px rgba(0,0,0,.1));
+  background-color: #fff;
+  @include margin(20px 0px 0px 0px);
+}
+.containerSetSty h2 {
+  padding: 20px;
+  color: #46517f;
+}
+.titleStyle {
+  text-align: center;
+}
+.setValueContainer {
+  margin-top: 20px;
+}
+.currentSets,.sevenSets {
+  margin-left: 55px;
+  color: #a3a3a3;
+}
+.sevenDayThreshold {
+  margin-top: 23px;
+  padding-top: 23px;
+  border-top: 1px solid #eff4f5;
+}
+.userTypes {
+  color: #a3a3a3;
+}
+.inputSetValue {
+  width: 36%;
+  @include border-radius(18px);
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+}
+.plusStyle {
+  display: inline-block;
+  @include margin(10px);
+  color: #dadada;
+  cursor: pointer;
+}
+.minusStyle {
+  display: inline-block;
+  @include margin(10px);
+  color: #dadada;
+  cursor: pointer;
+}
+.plusStyle:hover,.minusStyle:hover {
+  color: #1cc1fb;
+}
+.setValueArea {
+  text-align: center;
+}
+/**图标位置**/
+.iconSty {
+  font-size: 18px;
+ /* color: #dadada;*/
+  margin-right: 6px;
+  margin-left: -26px;
+  position: absolute;
+  padding: 15px 0;
+}
+
+/***账号管理*/
+.accountContainer {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  @include border-radius(3px);
+  @include box-shadow(0 0 30px rgba(0,0,0,.1));
+  background-color: #fff;
+}
+.toolbarWarp {
+  padding: 20px;
+}
+.toolgroup {
+  color: #a8a8a8;
+  font-size: 14px;
+  font-family:"Microsoft Yahei";
+  float: left;
+  margin-right: 13px;
+}
+.toolgroup input, .toolgroup select {
+  @include border-radius(13px);
+  border: 1px solid #d6d6d6;
+  padding: 3px 8px;
+}
+.toolgroup span.span-info {
+  margin-right: 6px;
+}
+.toolgroup .toolbtn, .toolbtnWarp .toolbtn {
+  @include border-radius(15px);
+  background: #1cc1fb;
+  color: #fff;
+  padding:0 23px;
+  cursor: pointer;
+  line-height: 2;
+}
+.data-table {
+  border-top: 1px solid #f0f4f7;
+  margin-top: 50px;
+}
+
+.table_data th {
+  color: #46517f !important;;
+}
+.table_data th,.table_data td{
+  text-align: center;
+  height: 46px;
+  color: #999;
+  vertical-align: middle !important;
+  border-bottom: 0 !important;
+}
+.tdoperate a {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #999;
+  padding-right: 10px;
+}
+.table_data tr:hover td,.table_data tr:hover td a,table td.tdoperate a:hover {
+  background: #1cc1fb;
+  color: #fff !important;
+}
+.menuChecked {
+  width: 783px;
+  height: 70px;
+  margin: 30px;
+  padding: 23px 36px;
+  @include border-radius(3px);
+  background-color: #f0f4f7;
+}
+.menuChecked i {
+  color: #1cc1fb;
+  margin: 0 5px;
+}
+.marginLeftSty {
+  margin-left: 63px;
+}
+.childLevelSty {
+  padding: 12px 36px
+}
+.childLevelSty .childMenus {
+  margin-left: 18px;
+}
+.childMenus  span {
+  padding-right: 90px;
+}
+.cancelBtn {
+  margin-right: 20px;
+  background: #eff8f9 !important;
+  border: 1px solid #a2a2a2;
+  color: #a2a2a2 !important;
+}
+.modal-content {
+  background: #fff;
+}
+.modal-header {
+  border-bottom: 0;
+}
+.modal-footer {
+  text-align: center;
+  border-top:0;
+}
+.cancelSty {
+  @include border-radius(16px);
+  padding: 5px 25px;
+  border: 1px solid #1cc1fb;
+  color: #1cc1fb;
+  cursor: pointer;
+}
+.saveBtnSty {
+  @include border-radius(16px);
+  background: #1cc1fb;
+  padding: 5px 25px;
+  color: #fff;
+  margin-right: 18px;
+  cursor: pointer;
+}
+.timeline-table {
+  margin : 0;
+  border-top: 0;
+}
+.timeline-table th {
+  background: #F0F4F7;
+}
+.time-label {
+  margin-left: -11px;
+}
+.bodyListShow {
+  display: none;
+}
+.tipNums {
+  padding: 0 10px;
+  background: #1cc1fb;
+  color: #fff;
+  margin-left: 5px;
+  @include border-radius(15px);
+}
+.timeline-table table {
+  border: 1px solid #DADADA;
+}
+
+.timelineHover {
+  background: #1cc1fb !important;
+  color: #fff !important;
+}
+.packUp, .lookDetails {
+  display: none;
+}
+.form-control {
+  @include border-radius(20px);
+}
+input,select,textarea,button,a {
+  outline: none
+}
+input[type=text]:focus,input[type=password]:focus,textarea:focus,select:focus {
+  border-color: #d2d6de !important;
+}
+
+.form-control:focus
+{
+  border-color: #d2d6de !important;
+}
+
+.blackListWhy {
+  width: 70%;
+  display: inline-block;
+  margin-top: 10px;
+}
+.back-btn {
+  margin-top: -27px;
+  color: #1cc1fb !important;
+}
+.indexTitle {
+  color: #a2a2a2 !important;
+  font-size: 16px !important;
+}
+.addressListMonitoring {
+  background: url("../image/index1.png") no-repeat;
+  width: 409px;
+  height: 309px;
+  background-size: 93% 93%;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: -30px;
+}
+.addressListMonitoring2 {
+  background: url("../image/index2.png") no-repeat;
+  width: 409px;
+  height: 309px;
+  background-size: 93% 93%;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0px -70px;
+}
+.addressListMonitoring3 {
+  background: url("../image/index3.png") no-repeat;
+  width: 409px;
+  height: 309px;
+  background-size: 93% 93%;
+  cursor: pointer;
+  display: inline-block;
+}
+.addressListMonitoring h3,.addressListMonitoring2 h3,.addressListMonitoring3 h3 {
+  padding: 60px 43px 17px 58px;
+  color: #fff;
+}
+.addressListMonitoring h2,.addressListMonitoring2 h2,.addressListMonitoring3 h2{
+  padding: 0 55px;
+  font-size: 48px;
+  color: #fff;
+  font-weight: bold;
+  font-family: arial;
+}
+.addressListMonitoringIcon {
+  background: url("../image/index1-icon.png") no-repeat;
+  width: 174px;
+  height: 174px;
+  background-size: 93% 93%;
+  margin-top: -85px;
+  margin-left: 207px;
+}
+.addressListMonitoringIcon2 {
+  background: url("../image/index2-icon.png") no-repeat;
+  width: 174px;
+  height: 174px;
+  background-size: 93% 93%;
+  margin-top: -85px;
+  margin-left: 207px;
+}
+.addressListMonitoringIcon3 {
+  background: url("../image/index3-icon.png") no-repeat;
+  width: 174px;
+  height: 174px;
+  background-size: 93% 93%;
+  margin-top: -85px;
+  margin-left: 207px;
+}
+
+.downClass {
+  background: #cae4f7;
+  cursor: pointer;
+}
+.iconDownSty {
+  font-size: 28px;
+  color: #fff;
+}
