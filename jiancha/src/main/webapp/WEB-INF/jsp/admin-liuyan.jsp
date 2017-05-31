@@ -58,67 +58,31 @@
 			<section class="content">
 				<div class="accountContainer">
 					<div class="toolbarWarp">
-						<div class="toolSelect">
-							<div class="toolgroup">
-								<label>搜索</label>
-								<input type="text" class="accountinput" placeholder="姓名">
-							</div><!--toolgroup end-->
-							<!--  
-							<div class="toolgroup">
-								<label>更新时间</label>
-								<input type="text" class="laydate-icon" id="start" style="width:200px; margin-right:10px;"  onclick="laydate({elem: '#hello1'});">
-								<span class="span-info" style="margin-left: -4px;">至</span>
-								<input type="text" class="laydate-icon" id="end" style="width:200px; ">
-							</div>
-							--><!--toolgroup end-->
-							<div class="toolgroup">
-								<label>审核状态</label>
-								<select id="selectStatus">
-									<option value="0">全部</option>
-									<option value="1">审核中</option>
-									<option value="2">审核通过</option>
-								</select>
-							</div><!--toolgroup end-->
-							<div class="toolgroup">
-								<div class="toolbtn fl" id="seatchBtn"><i class="fa fa-search"></i></div>
-							</div><!--toolgroup end-->
-						</div><!--toolSelect end-->
-						<div class="toolgroup" style="float: right;margin: 3px;">
-							<a class="toolbtn fl" style="margin-right: 20px;" data-toggle="modal" data-target="shenhebaoming" id="shenhebaoming">审核</a>
-							<!-- <a  class="toolbtn fl"  data-toggle="modal" data-target="#removeWhiteList">移除白名单</a> -->
-						</div>
+
 					</div>
 					<div class="data-table">
 						<table class="table  table_data">
 							<thead>
 							<tr>
-								<th></th>
 								<th>序号</th>
 								<th>姓名</th>
-								<th>审核状态</th>
+								<th>邮箱</th>
+								<th>标题</th>
+								<th>内容</th>
+								
 							</tr>
 							</thead>
 
 							<tbody>
 							
-					            <c:forEach items="${page.list}" var="baoming" varStatus="vs">  
+					            <c:forEach items="${page.list}" var="liuyan" varStatus="vs">  
 					              <tr>
-					             		<td><input type="checkbox" name='checkbox' value="${baoming.id}"/></td>
-					              		<td>${vs.index + 1}</td>
-					                    <td >${baoming.userName}</td>
-					                    <td >
-										<c:choose>
-										    <c:when test="${baoming.status == '1'}">
-										       	   审核中
-										    </c:when>
-										    <c:when test="${baoming.status == '2'}">
-									     		   审核通过
-										    </c:when>
-										    <c:otherwise>
-										       
-										    </c:otherwise>
-										</c:choose>
-					                    </td>		
+					             		<td>${vs.index + 1}</td>
+					                    <td >${liuyan.userName}</td>
+					                    <td >${liuyan.email}</td>		
+					                    <td >${liuyan.title}</td>	
+					                    <td >${liuyan.content}</td>	
+					                    <td class="gotoDetail" liuyanId="${liuyan.id}"><button >回复</button></td>
 					              </tr>  
 								</c:forEach>  
 							</tbody>
@@ -145,41 +109,9 @@
 </html>
 <script type="text/javascript">
  	$(function(){
- 		$("#seatchBtn").click(function(){
- 			var name = $(".accountinput").val();
- 			var status = $("#selectStatus").val();
- 			window.location.href="/admin/index?userName="+name+"&status="+status;
- 		});
- 		$("#shenhebaoming").click(function(){
- 			var ids = "";
- 			$("input[name='checkbox']:checked").each(function() {
- 				ids += $(this).val() + ",";
- 			});
- 			
- 			ids = ids.substring(0, ids.length - 1);
- 			if (ids == "") {
- 				layer.msg("请选择数据")
- 				return false;
- 			}
- 			$.ajax({
- 				url : '/admin/shenhe',
- 				type : 'POST',
- 				dataType : 'json',
- 				data : {
- 					"id" : ids
- 				},
- 				success : function(data) {
- 					if (data.code == 0) {
- 						window.location.href="/admin/index";
- 					}else{
- 						layer.msg(data.attach);
- 					}
- 				},
- 				error : function() {
- 					layer.msg("操作失败");
-
- 				}
- 			});
+ 		$(".gotoDetail").click(function(){
+ 			var id = $(this).attr("liuyanId");
+ 			window.location.href = "/admin/liuyan/get?id="+id;
  		});
  	});
 </script>

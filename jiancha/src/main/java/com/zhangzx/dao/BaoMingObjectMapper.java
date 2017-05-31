@@ -4,8 +4,10 @@ import java.sql.ResultSet;
 
 import com.zhangzx.common.ObjectMapper;
 import com.zhangzx.model.BaoMing;
+import com.zhangzx.model.LiuYan;
 
 public class BaoMingObjectMapper implements ObjectMapper {
+
 
 	@Override
 	public Object mapping(ResultSet rs) {
@@ -21,5 +23,6 @@ public class BaoMingObjectMapper implements ObjectMapper {
 		}
 		return baoMing;
 	}
+
 
 }

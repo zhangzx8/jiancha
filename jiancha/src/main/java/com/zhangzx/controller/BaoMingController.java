@@ -28,6 +28,7 @@ import com.zhangzx.service.BaoMingSevice;
 @RequestMapping(value = "/baoming")
 public class BaoMingController {
 	
+	
 	@Resource
 	private BaoMingSevice baoMingSevice;
 	

@@ -24,32 +24,36 @@ import com.zhangzx.common.ReturnCode;
 import com.zhangzx.model.BaoMing;
 import com.zhangzx.model.LiuYan;
 import com.zhangzx.service.BaoMingSevice;
+import com.zhangzx.service.LiuYanService;
 
 @Controller
-@RequestMapping(value = "/admin")
-public class AdminBaoMingController {
+@RequestMapping(value = "/admin/liuyan")
+public class AdminLiuyanController {
 	
 	@Resource
-	private BaoMingSevice baoMingSevice;
+	private LiuYanService liuYanService;
 	
 	
-	@RequestMapping(value = "/index", method = {RequestMethod.POST,RequestMethod.GET})
-	public String index(@Valid BaoMing baoMing,HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {
-		PageModel page = baoMingSevice.queryPage(baoMing);
+	@RequestMapping(value = "/list", method = {RequestMethod.POST,RequestMethod.GET})
+	public String index(@Valid LiuYan liuYan,HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {
+		PageModel page = liuYanService.queryPage(liuYan);
 		modelMap.addAttribute("page", page);
-		return "admin-bm";
+		return "admin-liuyan";
+	}
+	
+	
+	@RequestMapping(value = "/get", method = {RequestMethod.POST,RequestMethod.GET})
+	public String get(@Valid LiuYan liuYan,HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {
+		LiuYan liuy = liuYanService.getById(liuYan.getId());
+		modelMap.addAttribute("liuy", liuy);
+		return "admin-liuyan-edit";
 	}
 	
 	
 	@ResponseBody
-	@RequestMapping(value = "/shenhe", method = {RequestMethod.POST,RequestMethod.GET})
-	public ReturnCode shenhe(@RequestParam(value="id") String ids,HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {
-		String[] id = ids.split(",");
-		baoMingSevice.updateStatus(id);
-		//BaoMing baoMing = new BaoMing();
-		//baoMing.
-		//PageModel page = baoMingSevice.queryPage(baoMing);
-		//modelMap.addAttribute("page", page);
+	@RequestMapping(value = "/huifu", method = {RequestMethod.POST,RequestMethod.GET})
+	public ReturnCode shenhe(@Valid LiuYan liuYan,HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {
+		liuYanService.save(liuYan);
 		return new ReturnCode(0,"success");
 	}
 
