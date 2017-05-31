@@ -1,5 +1,6 @@
 package com.zhangzx.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,8 +9,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.zhangzx.common.PageModel;
+import com.zhangzx.model.News;
+import com.zhangzx.service.NewsService;
+
 @Controller
 public class IndexController {
+	@Resource
+	private NewsService newsService;
 	
 	@RequestMapping(value = "/index", method = {RequestMethod.POST,RequestMethod.GET})
 	public String add(HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {
@@ -28,8 +35,10 @@ public class IndexController {
 	
 	@RequestMapping(value = "/zhaokao", method = {RequestMethod.POST,RequestMethod.GET})
 	public String zhaokao(HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {
-
-		//modelMap.addAttribute("parentid", id);
+		News news = new News();
+		news.setType("zhaokao");
+		PageModel page = newsService.queryPage(news);
+		modelMap.addAttribute("page", page);
 		return "news";
 	}
 	
@@ -42,8 +51,10 @@ public class IndexController {
 	
 	@RequestMapping(value = "/xinwen", method = {RequestMethod.POST,RequestMethod.GET})
 	public String xinwen(HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {
-
-		//modelMap.addAttribute("parentid", id);
+		News news = new News();
+		news.setType("xinwen");
+		PageModel page = newsService.queryPage(news);
+		modelMap.addAttribute("page", page);
 		return "zp";
 	}
 

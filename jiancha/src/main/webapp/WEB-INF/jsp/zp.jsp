@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -106,21 +107,20 @@ PNG.fix('*');
 <div class="z_title"><div class="title_left"><img src="/resource/images/index_title_news.jpg" /></div></div>
 <div class="z_list_1">
 <ul>
-<li><a href="news_1.html"><span class="time">[2014-5-17]</span>新闻标题</a></li>
-<li><a href="news_1.html"><span class="time">[2014-5-17]</span>新闻标题</a></li>
-<li><a href="news_1.html"><span class="time">[2014-5-17]</span>新闻标题</a></li>
-<li><a href="news_1.html"><span class="time">[2014-5-17]</span>新闻标题</a></li>
-<li><a href="news_1.html"><span class="time">[2014-5-17]</span>新闻标题</a></li>
+<c:forEach items="${page.list}" var="newss" varStatus="vs">  
+	<li><a href="/news/get?id=${newss.id}"><span class="time">${newss.createTimeStr}</span>${newss.title}</a></li>  
+</c:forEach>  
 </ul>
 <div style="clear:both"></div>
              <div class="cpzs_foot">
               <table width="200" height="30" border="0" cellspacing="0" cellpadding="2">
+              <!--  
                 <tr>
                   <td><a href="#">首页</a></td>
                   <td><a href="#">上一页</a></td>
                   <td><a href="#">下一页</a></td>
                   <td><a href="#">尾页</a></td>
-                </tr>
+                </tr>-->
               </table>
             </div>
 </div>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>报名审核</title>
+<title>添加信息</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <!-- Bootstrap 3.3.4 -->
@@ -46,7 +46,7 @@
 							<i class="icon-home iconSty"></i><span>留言回复</span>
 						</a>
 					</li>
-										<li class="treeview">
+					<li class="treeview">
 						<a href="/news/admin/add">
 							<i class="icon-home iconSty"></i><span>添加首页信息</span>
 						</a>
@@ -62,36 +62,20 @@
 			</section>
 			<section class="content">
 				<div class="accountContainer">
-					<div class="toolbarWarp">
-
-					</div>
 					<div class="data-table">
-						<table class="table  table_data">
-							<thead>
-							<tr>
-								<th>序号</th>
-								<th>姓名</th>
-								<th>邮箱</th>
-								<th>标题</th>
-								<th>内容</th>
-								
-							</tr>
-							</thead>
-
-							<tbody>
-							
-					            <c:forEach items="${page.list}" var="liuyan" varStatus="vs">  
-					              <tr>
-					             		<td>${vs.index + 1}</td>
-					                    <td >${liuyan.userName}</td>
-					                    <td >${liuyan.email}</td>		
-					                    <td >${liuyan.title}</td>	
-					                    <td >${liuyan.content}</td>	
-					                    <td class="gotoDetail" liuyanId="${liuyan.id}"><button >回复</button></td>
-					              </tr>  
-								</c:forEach>  
-							</tbody>
-						</table>
+					<form action="">
+					    类型:<select  id = "typeSelect" >
+							<option  value = "zhaokao"  selected = "selected" >招考信息</option>
+							<option  value = "xinwen" >学院新闻</option>
+						</select>
+						</br>
+					  标题:  <input type="text"  id="newsTitle"/></br>
+					  内容:  <textarea style="width:200px; height:100px" id="newsContent"></textarea><br>
+					    <div class="toolgroup" style="float: left;margin: 3px;">
+							<a class="toolbtn fl" style="margin-right: 20px;" data-toggle="modal" data-target="shenhebaoming" id="subbtn">提交</a>
+							<!-- <a  class="toolbtn fl"  data-toggle="modal" data-target="#removeWhiteList">移除白名单</a> -->
+						</div>
+					    </form>
 					</div>
 				</div>
 			</section>
@@ -114,9 +98,29 @@
 </html>
 <script type="text/javascript">
  	$(function(){
- 		$(".gotoDetail").click(function(){
- 			var id = $(this).attr("liuyanId");
- 			window.location.href = "/admin/liuyan/get?id="+id;
+ 		$("#subbtn").click(function(){
+ 			var type =$("#typeSelect").val();
+ 			var newsTitle = $("#newsTitle").val();
+ 			var content = $("#newsContent").val();
+ 			$.ajax({
+ 				url : '/news/ajax/add',
+ 				type : 'POST',
+ 				dataType : 'json',
+ 				data : {
+ 					"type" : type,
+ 					"title" : newsTitle,
+ 					"content":content
+ 				},
+ 				success : function(data) {
+ 					if (data.code == 0) {
+ 						layer.msg("操作成功");
+ 					}
+ 				},
+ 				error : function() {
+ 					layer.msg("操作失败");
+
+ 				}
+ 			});
  		});
  	});
 </script>

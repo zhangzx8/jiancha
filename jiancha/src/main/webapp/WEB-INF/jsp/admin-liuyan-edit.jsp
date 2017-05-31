@@ -46,6 +46,11 @@
 							<i class="icon-home iconSty"></i><span>留言回复</span>
 						</a>
 					</li>
+										<li class="treeview">
+						<a href="/news/admin/add">
+							<i class="icon-home iconSty"></i><span>添加首页信息</span>
+						</a>
+					</li>
 				</ul>
 			</section>
 		</aside>

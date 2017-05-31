@@ -49,7 +49,7 @@ public class DbcpPool {
 		try {
 			dataSource = new BasicDataSource();
 			dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-			dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC");
+			dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC");
 			dataSource.setUsername("root");
 			//dataSource.setPassword("root");
 			

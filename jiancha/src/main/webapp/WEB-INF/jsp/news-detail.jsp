@@ -107,22 +107,7 @@ PNG.fix('*');
 <div class="z_title"><div class="title_left"><img src="/resource/images/index_title_news.jpg" /></div></div>
 <div class="z_list_1">
 <ul>
-<c:forEach items="${page.list}" var="news" varStatus="vs">  
-	<li><a href="/news/get?id=${news.id}"><span class="time">${news.createTimeStr}</span>${news.title}</a></li>  
-</c:forEach>  
-</ul>
-<div style="clear:both"></div>
-             <div class="cpzs_foot">
-              <table width="200" height="30" border="0" cellspacing="0" cellpadding="2">
-              <!-- 
-                <tr>
-                  <td><a href="#">首页</a></td>
-                  <td><a href="#">上一页</a></td>
-                  <td><a href="#">下一页</a></td>
-                  <td><a href="#">尾页</a></td>
-                </tr> -->
-              </table>
-            </div>
+${news.content}
 </div>
 </div>
 
