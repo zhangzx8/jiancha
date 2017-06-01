@@ -80,7 +80,7 @@
 					 
 					</td>
                     <td rowspan="3"> &nbsp;&nbsp; 照片 &nbsp;&nbsp;上传</td>
-                    <td rowspan="3"><input id="sl" type="file" name="pic" /></td>
+                    <td rowspan="3"><img src="${baoMing.picStr}" /></td>
               </tr>
 			  <tr>
                     <td>出生日期</td>
