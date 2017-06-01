@@ -41,6 +41,17 @@ public class AdminBaoMingController {
 	}
 	
 	
+	@RequestMapping(value = "/baoming/get", method = {RequestMethod.POST,RequestMethod.GET})
+	public String getById(@Valid BaoMing baoMing,HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {
+		//String path = request.getRequestURL().toString();
+		//String path2 = request.getRequestURI().toString();
+		//String path3 = request.get
+		BaoMing baoMingRes = baoMingSevice.getById(baoMing.getId());
+		modelMap.addAttribute("baoMing", baoMingRes);
+		return "admin-bm-detail";
+	}
+	
+	
 	@ResponseBody
 	@RequestMapping(value = "/shenhe", method = {RequestMethod.POST,RequestMethod.GET})
 	public ReturnCode shenhe(@RequestParam(value="id") String ids,HttpServletRequest request, HttpServletResponse response,ModelMap modelMap) throws Exception {

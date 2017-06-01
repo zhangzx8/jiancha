@@ -135,4 +135,8 @@ public class BaoMingSeviceImpl implements BaoMingSevice {
 		}
 		
 	}
+	
+	public BaoMing getById(int id){
+		return baoMingDao.getById(id);
+	}
 }

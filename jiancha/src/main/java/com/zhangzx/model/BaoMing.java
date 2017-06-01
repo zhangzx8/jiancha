@@ -43,10 +43,17 @@ public class BaoMing implements Serializable{
 	private Long endTime;
 	private Integer pageNo;
 	private Integer pageSize;
+	private String createTimeStr;
 	
 	
-
 	
+	
+	public String getCreateTimeStr() {
+		return createTimeStr;
+	}
+	public void setCreateTimeStr(String createTimeStr) {
+		this.createTimeStr = createTimeStr;
+	}
 	public Integer getPageNo() {
 		return pageNo;
 	}

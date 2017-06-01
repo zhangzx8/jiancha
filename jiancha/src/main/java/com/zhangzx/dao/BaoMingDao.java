@@ -56,7 +56,7 @@ public class BaoMingDao {
 	public PageModel queryPage(BaoMing baoMing) {
 		List<Object> listParam = new ArrayList<Object>();
 		StringBuilder builder1 = new StringBuilder();
-		builder1.append("select * from bao_ming where 1=1");
+		builder1.append("select * from bao_ming where 1=1 order by create_time desc");
 		StringBuilder builder2 = new StringBuilder();
 		builder2.append("select count(1) from bao_ming where 1=1");
 		
@@ -96,6 +96,13 @@ public class BaoMingDao {
 	public void updateStatus(int ids) {
 		String sql = "update bao_ming set status=2 where id = ?";
 		opDao.update(sql, new Object[]{ids}, false);
+	}
+	
+	public BaoMing getById(int id){
+		List<Object> listParam = new ArrayList<Object>();
+		listParam.add(id);
+		String sql = "select * from bao_ming where id = ?";
+		return (BaoMing) opDao.find(sql, listParam.toArray(), new BaoMingObjectMapper());
 	}
 
 }

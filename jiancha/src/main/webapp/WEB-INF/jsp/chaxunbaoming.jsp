@@ -30,14 +30,13 @@ PNG.fix('*');
 <div class="head">
 <div class="head_1">
 <div class="logo"><img src="/resource/images/logo.jpg" /></div>
-<div class="tel"><img src="/resource/images/head_tel.jpg" /></div>
 </div>
 <div class="nav">
 <div class="nav_1">
 <ul>
 <li><a href="/index">学院首页</a></li>
 <li><img src="/resource/images/menu_line.jpg" /></li>
-<li><a href="/xueyuan">学院概况</a></li>
+<li><a href="http://www1.hnjc.org/">学院概况</a></li>
 <li><img src="/resource/images/menu_line.jpg" /></li>
 <li><a href="/zhaokao">招考信息</a></li>
 <li><img src="/resource/images/menu_line.jpg" /></li>
@@ -45,7 +44,7 @@ PNG.fix('*');
 <li><img src="/resource/images/menu_line.jpg" /></li>
 <li><a href="/chaxun">报名查询</a></li>
 <li><img src="/resource/images/menu_line.jpg" /></li>
-<li><a href="/xinwen">学院新闻</a></li>
+<li><a href="http://www1.hnjc.org/newsCenterAction.do?method=index">学院新闻</a></li>
 <li><img src="/resource/images/menu_line.jpg" /></li>
 <li><a href="/liuyan">留言咨询</a></li>
 <li><img src="/resource/images/menu_line.jpg" /></li>
@@ -89,11 +88,11 @@ PNG.fix('*');
 <div class="left_list">
 <ul>
 <li><a href="/index">学院首页</a></li>
-<li><a href="/xueyuan">学院概况</a></li>
+<li><a href="http://www1.hnjc.org/">学院概况</a></li>
 <li><a href="/zhaokao">招考信息</a></li>
 <li><a href="/baoming/add">在线报名</a></li>
 <li><a href="/chaxun">报名查询</a></li>
-<li><a href="/xinwen">学院新闻</a></li>
+<li><a href="http://www1.hnjc.org/newsCenterAction.do?method=index">学院新闻</a></li>
 <li><a href="/liuyan">留言咨询</a></li>
 <Li><a href="/lianxiwomen">联系我们</a></Li>
 </ul>
@@ -107,7 +106,7 @@ PNG.fix('*');
 <div class="right">
 
 <div class="z_right">
-<div class="z_title"><div class="title_left"><img src="/resource/images/index_title_zhin.jpg" /></div></div>
+<div class="z_title"><div class="title_left"><img src="/resource/images/index_title_bmcx.jpg" /></div></div>
 <div class="z_list">
      <table border="1"   cellpadding="1" cellspacing="0" bordercolor=gray  align="center" width="100%">
            <tbody>
@@ -147,17 +146,16 @@ PNG.fix('*');
 <div class="footer">
 <div class="footer_1">
 
-<div style="text-align:left;background-color:#e8f4ff;"><b>友情链接</b></div>
+<div style="text-align:left;background-color:#e8f4ff;"><b><img src="/resource/images/index_title_yqlj.jpg" /></b></div>
 <hr>
 <br/>
   <ul>
-     <li class="lyul"><img src="#" style="width:88px;height:31px;"></li>
-	 <li class="lyul"><img src="#" style="width:88px;height:31px;"></li>
-	 <li class="lyul"><img src="#" style="width:88px;height:31px;"></li>
-	 <li class="lyul"><img src="#" style="width:88px;height:31px;"></li>
-	 <li class="lyul"><img src="#" style="width:88px;height:31px;"></li>
-	 <li class="lyul"><img src="#" style="width:88px;height:31px;"></li>
-	 <li class="lyul"><img src="#" style="width:88px;height:31px;"></li>
+      <li class="lyul"><a href="http://www1.hnjc.org/oa/login.do"><img src="/resource/images/oaxt.jpg" style="width:102px;height:29px;"></a></li>
+	  <li class="lyul"><a href="http://www1.hnjc.org/library.do?method=index"><img src="/resource/images/tsg.jpg" style="width:102px;height:29px;"></a></li>
+	  <li class="lyul"><a href="http://www1.hnjc.org/checkIp.do?method=webSite"><img src="/resource/images/wldh.jpg" style="width:102px;height:29px;"></a></li>
+	  <li class="lyul"><a href="http://zsjy.hnjc.org/"><img src="/resource/images/zsjy.jpg" style="width:102px;height:29px;"></a></li>
+	  <li class="lyul"><a href="http://www1.hnjc.org/politic.do?method=index"><img src="/resource/images/zzc.jpg" style="width:102px;height:29px;"></a></li>
+	  <li class="lyul"><a href="http://www1.hnjc.org/train.do?method=index"><img src="/resource/images/jcgpx.jpg" style="width:102px;height:29px;"></a></li>
   </ul>
 </div>
 <div style="margin-top:45px;">技术服务 | 联系我们 | 学校概况 | 版权声明 | 校长寄语 | 招聘启事 | 录用公告 | 感动中国

@@ -19,5 +19,7 @@ public interface BaoMingSevice {
 	public PageModel queryPage(BaoMing baoMing);
 	
 	public void updateStatus(String[] ids);
+	
+	public BaoMing getById(int id);
 
 }

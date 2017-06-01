@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>报名审核</title>
+<title>报名详情</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <!-- Bootstrap 3.3.4 -->
@@ -62,72 +62,94 @@
 			</section>
 			<section class="content">
 				<div class="accountContainer">
-					<div class="toolbarWarp">
-						<div class="toolSelect">
-							<div class="toolgroup">
-								<label>搜索</label>
-								<input type="text" class="accountinput" placeholder="姓名">
-							</div><!--toolgroup end-->
-							<!--  
-							<div class="toolgroup">
-								<label>更新时间</label>
-								<input type="text" class="laydate-icon" id="start" style="width:200px; margin-right:10px;"  onclick="laydate({elem: '#hello1'});">
-								<span class="span-info" style="margin-left: -4px;">至</span>
-								<input type="text" class="laydate-icon" id="end" style="width:200px; ">
-							</div>
-							--><!--toolgroup end-->
-							<div class="toolgroup">
-								<label>审核状态</label>
-								<select id="selectStatus">
-									<option value="0">全部</option>
-									<option value="1">审核中</option>
-									<option value="2">审核通过</option>
-								</select>
-							</div><!--toolgroup end-->
-							<div class="toolgroup">
-								<div class="toolbtn fl" id="seatchBtn"><i class="fa fa-search"></i></div>
-							</div><!--toolgroup end-->
-						</div><!--toolSelect end-->
-						<div class="toolgroup" style="float: right;margin: 3px;">
-							<a class="toolbtn fl" style="margin-right: 20px;" data-toggle="modal" data-target="shenhebaoming" id="shenhebaoming">审核</a>
-							<!-- <a  class="toolbtn fl"  data-toggle="modal" data-target="#removeWhiteList">移除白名单</a> -->
-						</div>
-					</div>
 					<div class="data-table">
-						<table class="table  table_data">
-							<thead>
-							<tr>
-								<th></th>
-								<th>序号</th>
-								<th>姓名</th>
-								<th>审核状态</th>
-							</tr>
-							</thead>
-
-							<tbody>
-							
-					            <c:forEach items="${page.list}" var="baoming" varStatus="vs">  
-					              <tr>
-					             		<td><input type="checkbox" name='checkbox' value="${baoming.id}"/></td>
-					              		<td>${vs.index + 1}</td>
-					                    <td ><a href="/admin/baoming/get?id=${baoming.id}">${baoming.userName}</a></td>
-					                    <td >
-										<c:choose>
-										    <c:when test="${baoming.status == '1'}">
-										       	   审核中
-										    </c:when>
-										    <c:when test="${baoming.status == '2'}">
-									     		   审核通过
-										    </c:when>
-										    <c:otherwise>
-										       
-										    </c:otherwise>
-										</c:choose>
-					                    </td>		
-					              </tr>  
-								</c:forEach>  
-							</tbody>
-						</table>
+						<table border="1"   cellpadding="1" cellspacing="0" bordercolor=gray  align="center">
+           <caption id="one"><b>河南检察职业学院2017年招聘报名登记表</b></caption>
+            <tbody>
+              <tr>
+                    <td>姓名</td>
+                    <td><input id="sl" type="text" name="userName" value="${baoMing.userName}"/></td>
+					<td id="sex">性别</td>
+					<td>
+						<c:if test="${baoMing.sex == '1'}">
+						男
+						</c:if>
+						<c:if test="${baoMing.sex == '2'}">
+						女
+						</c:if>
+					 
+					</td>
+                    <td rowspan="3"> &nbsp;&nbsp; 照片 &nbsp;&nbsp;上传</td>
+                    <td rowspan="3"><input id="sl" type="file" name="pic" /></td>
+              </tr>
+			  <tr>
+                    <td>出生日期</td>
+                    <td><input id="sl" type="text" name="birthDay" valyue="${baoMing.birthDay}"/></td>
+					<td id="mz">年龄</td>
+                    <td><input id="sl" type="text" name="age" value="${baoMing.age}"/></td>
+              </tr>
+			  <tr>
+                    <td>身份证号</td>
+                    <td><input id="sl" type="text" name="idCart" value="${baoMing.idCart}"/></td>
+					<td id="mz">民族</td>
+                    <td><input id="sl" type="text" name="mz" value="${baoMing.mz}"/></td>
+              </tr>
+			  
+              <tr>
+                    <td>政治面貌</td>
+                    <td colspan="2"><input  id="sl" type="text" name="zzmm" value="${baoMing.zzmm}"/></td>
+					<td id="jg ">籍贯</td>
+                    <td colspan="2"><input id="sl" type="text" name="jg" value="${baoMing.jg}"/></td>
+              </tr>
+			  <tr>
+                    <td>应聘岗位</td>
+                    <td colspan="2"><input id="sl" type="text" name="ypgw" value="${baoMing.ypgw}"/></td>
+					<td>联系方式</td>
+                    <td colspan="2"><input id="sl" type="text" name="phone" value="${baoMing.phone}"/></td>
+              </tr>
+			   <tr>
+                    <td>全日制本科毕业院校及时间</td>
+                    <td colspan="2"><input id="s2" type="text" name="school" value="${baoMing.school}"/></td>
+					<td>专业</td>
+                    <td colspan="2"><input id="s2" type="text" name="major" value="${baoMing.major}"/></td>
+              </tr>
+			   <tr>
+                    <td>全日制硕士毕业院校及时间</td>
+                    <td colspan="2"><input id="s2" type="text" name="school2" value="${baoMing.school2}"/></td>
+					<td>专业及方向</td>
+                    <td colspan="2"><input id="s2" type="text" name="major2" value="${baoMing.major2}"/></td>
+              </tr>
+			   <tr>
+                    <td>全日制博士毕业院校及时间</td>
+                    <td colspan="2"><input id="s2" type="text" name="school3" value="${baoMing.school3}"/></td>
+					<td>专业及方向</td>
+                    <td colspan="2"><input id="s2" type="text" name="major3" value="${baoMing.major3}"/></td>
+              </tr>
+			   
+			  <tr>
+                    <td>身份证</td>
+                    <td colspan="5"><a href="${baoMing.picimg}">点击下载</a></td>		
+              </tr>
+			  <tr>
+                    <td>简历</td>
+                    <td colspan="5"><a href="${baoMing.picimg1}">点击下载</a></td>		
+              </tr>
+			  <tr>
+                    <td>毕业证</td>
+                    <td colspan="5"><a href="${baoMing.picimg2}">点击下载</a></td>		
+              </tr>
+			  <tr>
+                    <td>资格证书</td>
+                    <td colspan="5"><a href="${baoMing.picimg3}">点击下载</a></td>		
+              </tr>
+			  <tr>
+                    <td>其它证书</td>
+                    <td colspan="5"><a href="${baoMing.picimg4}">点击下载</a></td>		
+              </tr>  
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
 					</div>
 				</div>
 			</section>
