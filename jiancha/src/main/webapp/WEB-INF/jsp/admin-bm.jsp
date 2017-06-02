@@ -89,6 +89,7 @@
 							</div><!--toolgroup end-->
 						</div><!--toolSelect end-->
 						<div class="toolgroup" style="float: right;margin: 3px;">
+						    <a href="/admin/exportBaoMing" class="toolbtn fl" style="margin-right: 20px;" id="exportBaoMing">导出全部</a>
 							<a class="toolbtn fl" style="margin-right: 20px;" data-toggle="modal" data-target="shenhebaoming" id="shenhebaoming">审核</a>
 							<!-- <a  class="toolbtn fl"  data-toggle="modal" data-target="#removeWhiteList">移除白名单</a> -->
 						</div>

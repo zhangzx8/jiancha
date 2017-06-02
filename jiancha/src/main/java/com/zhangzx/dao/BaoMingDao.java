@@ -43,6 +43,14 @@ public class BaoMingDao {
 	}
 	
 	
+	public List<BaoMing> getAll() {
+		String sql = "select * from bao_ming";
+		Object[] obj = {};
+		return (List<BaoMing>) opDao
+				.query(sql, obj, new BaoMingObjectMapper());
+	}
+	
+	
 	public List<BaoMing> getList(String sql,Object[] obj) {
         return (List<BaoMing>) opDao
 				.query(sql, obj, new BaoMingObjectMapper());

@@ -49,9 +49,9 @@ public class DbcpPool {
 		try {
 			dataSource = new BasicDataSource();
 			dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-			dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/jiancha?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC");
+			dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC");
 			dataSource.setUsername("root");
-			//dataSource.setPassword("root");
+			dataSource.setPassword("123");
 			
 //			dataSource.setUrl("jdbc:oracle:thin:@10.1.253.236:1521:ORA11G");
 //			dataSource.setUsername("msm_tcls");

@@ -6,13 +6,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.zhangzx.common.ExcelUtil;
 import com.zhangzx.common.PageModel;
 import com.zhangzx.dao.BaoMingDao;
 import com.zhangzx.model.BaoMing;
@@ -138,5 +141,68 @@ public class BaoMingSeviceImpl implements BaoMingSevice {
 	
 	public BaoMing getById(int id){
 		return baoMingDao.getById(id);
+	}
+	
+	
+	public void export(HttpServletResponse response) throws IOException{
+		
+		List<String> headers = new ArrayList<String>();
+		headers.add("姓名");
+		headers.add("性别");
+		headers.add("出生日期");
+		headers.add("年龄");
+		headers.add("身份证号");
+		headers.add("民族");
+		headers.add("政治面貌");
+		headers.add("应聘岗位");
+		headers.add("联系方式");
+		headers.add("全日制本科毕业院校及时间");
+		headers.add("专业");
+		headers.add("全日制硕士毕业院校及时间");
+		headers.add("专业及方向");
+		headers.add("全日制博士毕业院校及时间");
+		headers.add("专业及方向");
+		headers.add("审核状态");
+		String[] title = headers.toArray(new String[headers.size()]);
+		List<Object[]> listAll = new ArrayList<Object[]>();
+		List<Object> listCell = null;
+
+		//List<Map<String,Object>> list = priceMonitorDao.queryForMapDownLoad(p_province, p_month);
+		List<BaoMing> listBaoMing =  baoMingDao.getAll();
+		for(BaoMing baoMing : listBaoMing){
+			listCell = new ArrayList<Object>();
+			listCell.add(baoMing.getUserName());
+			if("1".equals(baoMing.getSex())){
+				listCell.add("男");
+			}else{
+				listCell.add("女");
+			}
+			listCell.add(baoMing.getBirthDay());
+			listCell.add(baoMing.getAge());
+			listCell.add(baoMing.getIdCart());
+			listCell.add(baoMing.getMz());
+			listCell.add(baoMing.getZzmm());
+			listCell.add(baoMing.getYpgw());
+			listCell.add(baoMing.getPhone());
+			listCell.add(baoMing.getSchool());
+			listCell.add(baoMing.getMajor());
+			listCell.add(baoMing.getSchool2());
+			listCell.add(baoMing.getMajor2());
+			listCell.add(baoMing.getSchool3());
+			listCell.add(baoMing.getMajor3());
+			if(1==baoMing.getStatus()){
+				listCell.add("审核中");
+			}else{
+				listCell.add("已审核");
+			}
+
+			listAll.add(listCell.toArray());
+		}
+		
+		response.setHeader("Content-Disposition", "attachment;filename=\""+ new String("报名列表".getBytes( "utf-8" ), "ISO8859-1" )+ ".xls");
+		// 设定输出文件头
+		response.setContentType("application/vnd.ms-excel;charset=UTF-8");
+		ExcelUtil.writeExcel(response.getOutputStream(), listAll, title);
+		
 	}
 }

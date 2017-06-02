@@ -3,6 +3,8 @@ package com.zhangzx.service;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.zhangzx.common.PageModel;
 import com.zhangzx.model.BaoMing;
 
@@ -21,5 +23,7 @@ public interface BaoMingSevice {
 	public void updateStatus(String[] ids);
 	
 	public BaoMing getById(int id);
+	
+	public void export(HttpServletResponse response)throws IOException;
 
 }
