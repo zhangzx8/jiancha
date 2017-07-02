@@ -1,7 +1,7 @@
 package com.zhangzx.common;
 
 /**
- * 基础返回bean code: 0 正常，非0为异常 msg: 异常信息 前端提示用（***）描述，如果无需前端显示用（无）表示
+ * 基础返回bean code: 0 正常，非0为异常 msg: 异常信息 前端提示用（***）描述，如果无需前端显示用121e（无）表示
  */
 @SuppressWarnings("UnusedDeclaration")
 public class BaseResult {
